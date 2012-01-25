@@ -1,6 +1,6 @@
 module YJTools.Tribial (
   ghcMake
-, updateFile
+, updateFile_
 ) where
 
 import System.IO              (openFile, hClose, IOMode(WriteMode), hGetLine,
@@ -13,7 +13,6 @@ import System.Directory.Tools (doesNotExistOrOldThan)
 import Control.Exception      (bracket)
 import Control.Monad.Tools    (ifM)
 import Control.Applicative    ((<$>))
-import Text.RegexPR           (matchRegexPR)
 
 ghcMake :: String -> FilePath -> IO ExitCode
 ghcMake exe dir = do
@@ -25,12 +24,6 @@ ghcMake exe dir = do
        ExitSuccess -> return ()
        _           -> readFile errFile >>= putStr
   return ret
-
-updateFile :: (String, String) -> FilePath -> FilePath -> IO Bool
-updateFile (cmtB, cmtE) src dst = do
-  let cmtOut  = (cmtB ++) . ( ++ cmtE ++ "\n")
-      cmtIn   = (>>= lookup 1) . fmap snd . matchRegexPR (cmtB ++ "(\\S+)" ++ cmtE)
-  updateFile_ cmtIn cmtOut src dst
 
 updateFile_ :: (String -> Maybe String) -> (FilePath -> String) -> FilePath -> FilePath -> IO Bool
 updateFile_ gtSrc hdr src dst
