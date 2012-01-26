@@ -1,5 +1,5 @@
 Name:		yjtools
-Version:	0.9.9
+Version:	0.9.10
 Cabal-Version:	>= 1.2
 Build-Type:	Simple
 License:	LGPL
@@ -18,5 +18,5 @@ Extra-Source-Files:
 Extra-Tmp-Files:
 
 Library
-  Build-Depends:	base<=4.2.0.2, process, directory, old-time
+  Build-Depends:	base>3&&<5, process, directory, old-time
   Exposed-Modules:	Control.Monad.Tools, Control.Applicative.Tools, Data.List.Tools, Data.Function.Tools YJTools.Tribial System.Directory.Tools, Data.Bool.Tools
