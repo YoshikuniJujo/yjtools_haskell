@@ -4,6 +4,9 @@ module Data.List.Tools (
 , mulLists
 , defaultElem
 , isIncludedElem
+
+, setAt
+, modifyAt
 ) where
 
 takeUntil :: (a -> Bool) -> [a] -> [a]
@@ -27,3 +30,9 @@ defaultElem _    lst = lst
 
 isIncludedElem :: Eq a => [a] -> [a] -> Bool
 isIncludedElem lst1 lst2 = and $ map (flip elem lst2) lst1
+
+setAt :: [a] -> Int -> a -> [a]
+setAt xs i x = take i xs ++ [x] ++ drop (i + 1) xs
+
+modifyAt :: [a] -> Int -> (a -> a) -> [a]
+modifyAt xs i f = take i xs ++ [f $ xs !! i] ++ drop (i + 1) xs
