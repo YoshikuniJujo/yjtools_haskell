@@ -18,7 +18,7 @@ Extra-Source-Files:
 Extra-Tmp-Files:
 
 Library
-  Build-Depends:	base>3&&<5, process, directory
+  Build-Depends:	base>3&&<5
   Exposed-Modules:	Control.Monad.Tools, Control.Applicative.Tools,
     Data.List.Tools, Data.Function.Tools,
     Data.Bool.Tools
