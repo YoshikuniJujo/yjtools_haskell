@@ -1,5 +1,5 @@
 Name:		yjtools
-Version:	0.9.13
+Version:	0.9.14
 Cabal-Version:	>= 1.2
 Build-Type:	Simple
 License:	LGPL
@@ -21,4 +21,4 @@ Library
   Build-Depends:	base>3&&<5
   Exposed-Modules:	Control.Monad.Tools, Control.Applicative.Tools,
     Data.List.Tools, Data.Function.Tools,
-    Data.Bool.Tools
+    Data.Bool.Tools, Data.IORef.Tools
