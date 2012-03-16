@@ -1,12 +1,6 @@
 module Data.Tuple.Tools (
-  modifyFst
-, modifySnd
+	rotate
 ) where
 
-import Control.Arrow (first, second)
-
-modifyFst :: (a -> b) -> (a, c) -> (b, c)
-modifyFst = first -- f (x, y) = (f x, y)
-
-modifySnd :: (a -> b) -> (c, a) -> (c, b)
-modifySnd = second -- f (x, y) = (x, f y)
+rotate :: Floating a => a -> (a, a) -> (a, a)
+rotate rad (x, y) = (x * cos rad - y * sin rad, x * sin rad + y * cos rad)
