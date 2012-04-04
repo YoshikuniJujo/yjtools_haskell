@@ -1,5 +1,6 @@
 module Data.Function.Tools (
   const2
+, const3
 , applyWhen
 , applyUnless
 , apply2way
@@ -11,6 +12,9 @@ import Control.Arrow ((&&&))
 
 const2 :: a -> b -> c -> a
 const2 = const . const
+
+const3 :: a -> b -> c -> d -> a
+const3 = const . const . const
 
 applyWhen :: Bool -> (a -> a) -> a -> a
 applyWhen b f = if b then f else id
