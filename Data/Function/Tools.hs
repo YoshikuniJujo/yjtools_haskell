@@ -1,5 +1,7 @@
 module Data.Function.Tools (
-  const2
+  curry3
+, uncurry3
+, const2
 , const3
 , applyWhen
 , applyUnless
@@ -9,6 +11,12 @@ module Data.Function.Tools (
 {-
 import Control.Arrow ((&&&))
  -}
+
+curry3 :: ((a, b, c) -> d) -> a -> b -> c -> d
+curry3 f x y z = f (x, y, z)
+
+uncurry3 :: (a -> b -> c -> d) -> (a, b, c) -> d
+uncurry3 f (x, y, z) = f x y z
 
 const2 :: a -> b -> c -> a
 const2 = const . const
